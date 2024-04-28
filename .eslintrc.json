@@ -1,3 +1,85 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": [
+    "airbnb",
+    "airbnb-typescript",
+    "prettier",
+    // "eslint:recommended",
+    // "plugin:react/recommended",
+    "plugin:react/jsx-runtime",
+    // "plugin:react-hooks/recommended",
+    "plugin:@tanstack/eslint-plugin-query/recommended",
+    "next/core-web-vitals"
+  ],
+  "plugins": [
+    "@typescript-eslint",
+    "@tanstack/query",
+    "eslint-plugin-import",
+    "no-relative-import-paths",
+    "react-refresh",
+    "prettier"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "project": "./tsconfig.json"
+  },
+  "env": {
+    "browser": true,
+    "es2020": true
+  },
+  "rules": {
+    // ##### custom rules #####
+    "react-refresh/only-export-components": "off",
+
+    "no-relative-import-paths/no-relative-import-paths": [
+      "error",
+      {
+        "rootDir": "src",
+        "prefix": "@",
+        "allowSameFolder": false
+      }
+    ],
+
+    // ##### external rule overrides #####
+    "prettier/prettier": ["error", {
+      "tabWidth": 4
+    }],
+
+    "no-plusplus": ["off"],
+
+    "react/jsx-no-bind": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/require-default-props": "off",
+    "react/function-component-definition": "off",
+
+    "react/no-unstable-nested-components": [
+      "error",
+      {
+        "allowAsProps": true
+      }
+    ],
+
+    // seems to be bugged for aliases
+    "import/extensions": ["error", "ignorePackages", { "": "never", "tsx": "never", "ts": "never" }],
+
+    "radix": "off",
+
+    // TODO: temp rules
+    "jsx-a11y/anchor-has-content": "off",
+    "jsx-a11y/anchor-is-valid": "off",
+    "jsx-a11y/control-has-associated-label": "off",
+    "jsx-a11y/click-events-have-key-events": "off",
+    "react/no-unused-prop-types": "off",
+    "jsx-a11y/no-static-element-interactions": "off",
+    "react/jsx-no-useless-fragment": "off",
+    "react/no-array-index-key": "off",
+    "jsx-a11y/img-redundant-alt": "off",
+    "jsx-a11y/label-has-associated-control": "off",
+    "jsx-a11y/iframe-has-title": "off",
+    "jsx-a11y/no-noninteractive-element-interactions": "off"
+  },
+  "overrides": []
 }
